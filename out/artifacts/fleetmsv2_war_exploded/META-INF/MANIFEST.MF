@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: hp
+Build-Jdk: Amazon Corretto 17.0.10
+Implementation-Title: fleetmsv2
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.kindsonthegenius
+Main-Class: ${start-class}
+

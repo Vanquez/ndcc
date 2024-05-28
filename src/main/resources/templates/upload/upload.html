@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Document Management</title>
+</head>
+<body>
+<h1>Document Management</h1>
+
+<form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".pdf,.doc,.docx" required/>
+    <button type="submit">Upload</button>
+</form>
+
+<h2>Uploaded Documents</h2>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Comments</th>
+        <th>Add Comment</th>
+    </tr>
+    <tr th:each="document, docIndex : ${documents}">
+        <td th:text="${document.name}"></td>
+        <td>
+            <ul>
+                <li th:each="comment : ${document.comments}" th:text="${comment}"></li>
+            </ul>
+        </td>
+        <td>
+            <form th:action="@{/comment}" method="post">
+                <input type="hidden" name="documentId" th:value="${docIndex.index}"/>
+                <input type="text" name="comment" required/>
+                <button type="submit">Add</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
